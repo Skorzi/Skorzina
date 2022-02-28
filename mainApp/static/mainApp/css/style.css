@@ -1,0 +1,379 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*, *:before, *after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+body {
+  font-family: 'Bebas Neue', cursive;
+  background-color: #fffcef;
+}
+
+.app_container {
+  width: 100%;
+  position: relative;
+  height: 800px;
+}
+
+.header {
+  background-color: white;
+}
+
+.header__body {
+  position: relative;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.header__body:hover {
+  background-color: black;
+  opacity: 0.8;
+  -webkit-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.header__body:hover .header__link a {
+  color: #fffcef;
+}
+
+.header__body:hover .header__logo, .header__body:hover .header__basket, .header__body:hover .header__login {
+  -webkit-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+  -webkit-filter: invert(100%) sepia(39%) saturate(616%) hue-rotate(14deg) brightness(108%) contrast(101%);
+          filter: invert(100%) sepia(39%) saturate(616%) hue-rotate(14deg) brightness(108%) contrast(101%);
+}
+
+.header__logo {
+  padding: 60px 0 0 50px;
+  height: 70px;
+}
+
+.header__logo img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.header__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 700px;
+  margin: 0 auto;
+  padding: 65px 0 0 0;
+}
+
+.header__link a {
+  color: black;
+  font-size: 32px;
+}
+
+.header__link a:hover {
+  text-decoration: underline;
+}
+
+.header__ui {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 65px 70px 0 0;
+}
+
+.header__login {
+  width: 50px;
+  height: 50px;
+}
+
+.header__login img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.header__basket {
+  width: 50px;
+  height: 50px;
+}
+
+.header__basket img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.header__line {
+  position: absolute;
+  bottom: 0;
+  margin: 0 45px 0 0;
+  width: 100%;
+  height: 6px;
+  background-color: black;
+}
+
+.app__video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.page {
+  margin: 23px auto;
+  max-width: 1450px;
+}
+
+.app__underline {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 7px;
+  background-color: black;
+  margin: 0 auto;
+}
+
+.page__title {
+  font-size: 45px;
+  text-align: center;
+}
+
+.page__line {
+  background-color: black;
+  height: 5px;
+  width: 100%;
+}
+
+.page__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page__product {
+  width: 450px;
+  margin: 20px 15px;
+}
+
+.product__item {
+  height: 430px;
+  background-color: black;
+  border-radius: 15px;
+  border: solid black 2px;
+}
+
+.product__item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 15px;
+}
+
+.product__price {
+  border: solid black 2px;
+  margin: 10px 0 0 0;
+  height: 60px;
+  background-color: black;
+  border-radius: 21px;
+  cursor: pointer;
+}
+
+.product__price:hover {
+  background-color: white;
+}
+
+.product__price:hover .price__text {
+  letter-spacing: 0;
+  color: black;
+}
+
+.price__text {
+  letter-spacing: 24px;
+  margin: 17px auto;
+  text-align: center;
+  color: #fffcef;
+  font-size: 32px;
+}
+
+.price__cost {
+  opacity: 0;
+  text-align: center;
+  color: black;
+  font-size: 32px;
+  margin: 17px auto;
+}
+
+.page__connect {
+  width: 100%;
+}
+
+.connect__container {
+  padding: 40px 0 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.connect__title {
+  font-size: 45px;
+}
+
+.connect__line {
+  height: 6px;
+  background-color: black;
+  width: 80%;
+}
+
+.page__phone {
+  border: solid black 2px;
+  width: 520px;
+  height: 51px;
+  font-size: 29px;
+  padding: 0 0 0 10px;
+  margin: 20px 0 0 0;
+}
+
+.page__name {
+  border: solid black 2px;
+  margin: 20px 0 0 0;
+  width: 520px;
+  height: 51px;
+  font-size: 29px;
+  padding: 0 0 0 10px;
+}
+
+.page__submit {
+  border: solid black 2px;
+  width: 400px;
+  height: 43px;
+  font-size: 27px;
+  margin: 20px 0 0 0;
+}
+
+.footer {
+  width: 100%;
+}
+
+.footer__block {
+  height: 110px;
+  background-color: black;
+}
+
+.footer__text {
+  color: white;
+  font-size: 25px;
+}
+
+.footer__git {
+  color: white;
+  font-size: 25px;
+}
+
+.footer__link a {
+  color: white;
+  font-size: 25px;
+}

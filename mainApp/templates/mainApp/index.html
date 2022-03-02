@@ -3,8 +3,12 @@
 <html>
 
 <head>
+    
     <title>Skorzina</title>
     <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/style.css' %}">
+    <meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 </head>
 
@@ -27,18 +31,35 @@
                             <li class="header__link"><a href="#">About</a></li>
                             <li class="header__link"><a href="#">Help</a></li>
                         </ul>
-                        <div class="header__burger">
-                            <div class="header__menu1"></div>
-                            <div class="header__menu2"></div>
-                            <div class="header__menu3"></div>
-                        </div>
-                        <div class="header__ui">
-                            <div class="header__login">
-                                <a href="#"><img src="../../static/mainApp/images/icons/login.png" alt=""></a>
+                        <div class="header__phone">
+                            <div class="header__ui">
+                                <div class="header__login">
+                                    <a href="#"><img src="../../static/mainApp/images/icons/login.png" alt=""></a>
+                                </div>
+                                <div class="header__basket"><img src="../../static/mainApp/images/icons/basket.png" alt="">
+                                </div>
                             </div>
-                            <div class="header__basket"><img src="../../static/mainApp/images/icons/basket.png" alt="">
+                            <div class="header__burger">
+                                <div class="header__menu1"></div>
+                                <div class="header__menu2"></div>
+                                <div class="header__menu3"></div>
                             </div>
                         </div>
+                            <div class="header__phone_menu">
+                                <div class="header__cross">
+                                    <div class="header__cross_line"></div>
+                                    <div class="header__cross_line2"></div>
+                                    <div class="header__cross_line3"></div>
+                                </div>
+                                <div class="header__phone_line"></div>
+                                <ul class="header__phone_list">
+                                    <li class="header__phone_link"><a href="#">Shop</a></li>
+                                    <li class="header__phone_link"><a href="#">Contact</a></li>
+                                    <li class="header__phone_link"><a href="#">About</a></li>
+                                    <li class="header__phone_link"><a href="#">Help</a></li>
+                                </ul>
+                            </div>
+                        
                         <div class="header__line"></div>
                     </div>
                 </div>
@@ -139,7 +160,7 @@
         <footer class="footer">
             <div class="footer__block">
                 <div class="footer__text">
-                    <div class="footer_name">Skorz</div>
+                    <div class="footer__name">WRITTEN AND DIRECTED BY SKORZ</div>
                     <div class="footer__git"><a href="https://github.com/Skorzi">GIT</a></div>
                     <div class="footer__link"><a
                             href="https://www.youtube.com/watch?v=vJGvSbHmeco&t=84s&ab_channel=ZimautAnimation">Link on
@@ -149,7 +170,7 @@
         </footer>
     </div>
 
-
+    <script type="text/javascript" src="{% static 'mainApp/js/script.js' %}"></script>
 </body>
 
 </html>

@@ -1,0 +1,18 @@
+.page__title {
+  height: 700px;
+}
+
+.page__text {
+  font-size: 32px;
+  color: black;
+}
+
+.page__phone {
+  font-size: 34px;
+  color: black;
+  text-decoration: underline;
+  border: none;
+  padding: auto;
+  margin: 20px auto;
+  width: auto;
+}

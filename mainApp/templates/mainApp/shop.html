@@ -1,0 +1,128 @@
+{% load static %}
+
+<html>
+
+<head>
+    
+    <title>Skorzina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/shop.css' %}">
+    <meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="app_container">
+            <div class="app">
+                <div class="header">
+                    <div class="header__blockout"></div>                            
+                    <div class="header__body">
+                        <div class="header__logo">
+                            <a href="/"><img src="../../static/mainApp/images/icons/logo3.png" alt=""></a>
+                        </div>
+                        <ul class="header__list">
+                            <li class="header__link"><a href="{% url 'shop' %}">Shop</a></li>
+                            <li class="header__link"><a href="/#contact-form">Contact</a></li>
+                            <li class="header__link"><a href="{% url 'about' %}">About</a></li>
+                            <li class="header__link"><a href="{% url 'help' %}">Help</a></li>
+                        </ul>
+                        <div class="header__phone">
+                            <div class="header__ui">
+                                <div class="header__login">
+                                    <a class="header__login_logo" href="#"><img src="../../static/mainApp/images/icons/login.png" alt=""></a>
+                                </div>
+                                <div class="header__basket">
+                                    <a class="header__basket_logo"><img src="../../static/mainApp/images/icons/basket.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="header__burger">
+                                <div class="header__menu1"></div>
+                                <div class="header__menu2"></div>
+                                <div class="header__menu3"></div>
+                            </div>
+                        </div>
+                            <div class="header__phone_menu">
+                                <div class="header__cross">
+                                    <div class="header__cross_line"></div>
+                                    <div class="header__cross_line2"></div>
+                                    <div class="header__cross_line3"></div>
+                                </div>
+                                <div class="header__phone_line"></div>
+                                <ul class="header__phone_list">
+                                    <li class="header__phone_link"><a href="{% url 'shop' %}">Shop</a></li>
+                                    <li class="header__phone_link"><a href="/#contact-form">Contact</a></li>
+                                    <li class="header__phone_link"><a href="{% url 'about' %}">About</a></li>
+                                    <li class="header__phone_link"><a href="{% url 'help' %}">Help</a></li>
+                                </ul>
+                            </div>
+                        
+                        <div class="header__line"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main class="page">
+            <h2 class="page__title">Gooooods</h2>
+            <div class="page__line"></div>
+            <div class="page__container">
+                <div class="page__list">
+                    {% for good in last_goods %}
+                        <a class="page__product" href="#">
+                            <div class="product__item">
+                                <img src="{% if good.photo %}{{ good.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}">
+                            </div>
+                            <div class="product__price">
+                                <div class="price__text">BUY</div>
+                                <div class="price__cost">{{ good.cost }}</div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="footer__block">
+                <div class="footer__text">
+                    <div class="footer__name">WRITTEN AND DIRECTED BY SKORZ</div>
+                    <div class="footer__git"><a href="https://github.com/Skorzi">GIT</a></div>
+                    <div class="footer__link"><a
+                            href="https://www.youtube.com/watch?v=vJGvSbHmeco&t=84s&ab_channel=ZimautAnimation">Link on
+                            video</a></a></div>
+                </div>
+            </div>
+        </footer>
+        <div class="wrapper__app_menus">
+            <div class="wrapper__block_app_menus">
+                <div class="login__block">
+                    <div class="login__forms">
+                        <div class="login__title">LOGIN</div>
+                        <input class="login__name">
+                        <input class="login__pass">
+                        <input class="login__submit" type="submit" value="login">
+                        <div class="login__register"><a href="#">register</a></div>
+                        <div class="login__forgot"><a href="#">forgot your password?</a></div>
+                    </div>
+                </div>
+                <div class="basket__block">
+                    <div class="basket__forms">
+                        <div class="basket__header">
+                            <div class="basket__title">BASKET</div>
+                            <div class="basket__title_line"></div>
+                        </div>
+                        <div class="basket__line"></div>
+                        <div class="basket__cost"></div>
+                        <div class="basket__in_basket"></div>
+                        <div class="basket__buy"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script type="text/javascript" src="{% static 'mainApp/js/shop.js' %}"></script>
+</body>
+
+</html>

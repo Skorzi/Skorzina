@@ -1,0 +1,22 @@
+.page__about_text {
+  display: block;
+  height: 690px;
+}
+
+.page__title {
+  font-size: 64px;
+  color: black;
+}
+
+.page__img {
+  height: 90%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.page__img img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}

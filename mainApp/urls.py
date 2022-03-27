@@ -10,7 +10,7 @@ urlpatterns = [
     path("shop", views.ShopView.as_view(), name="shop"),
     path("help", views.HelpView.as_view(), name='help'),
     path("about", views.AboutView.as_view(), name="about"),
-    path("", views.basket_add, name="basket_add")
+    path("basket_add", views.basket_add, name="basket_add")
 ]
 
 if settings.DEBUG:

@@ -15,7 +15,6 @@ import posixpath
 import mimetypes
 
 
-BASKET_SESSION_ID = "basket"
 
 mimetypes.add_type("text/css", ".css", True)
 
@@ -58,7 +57,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'mainApp.middleware.BasketMiddleWare',
+    # 'mainApp.middleware.BasketMiddleWare',
 ]
 
 ROOT_URLCONF = 'Skorzina.urls'

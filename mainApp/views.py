@@ -6,7 +6,6 @@ from .forms import BasketAddProductForm
 from .basket import Basket
 
 
-
 # class IndexView(generic.ListView):
 #     template_name = "mainApp/index.html"
 #     model = Goods
@@ -32,23 +31,25 @@ class IndexView(generic.View):
     def get(self, request):
         goods = Goods.objects.all()
         basket = Basket(self.request)
+        # if request.method == 'GET':
+        #     print(request.GET)
+        #     if 'get_items' in request.GET:
+        #         print("HUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUI")
+        #         return JsonResponse(basket.returnBasket())
         return render(request, 'mainApp/index.html', context={"last_goods": goods, 'basket': basket})
 
     def post(self, request):
         basket = Basket(self.request)
         goods = Goods.objects.all()
+        print(request.POST)
         if request.method == 'POST':
             if 'add_item' in request.POST:
                 basket_add(request)
-
-            if 'remove_item' in request.POST:
+                
+            elif 'remove_item_basket' in request.POST:
                 basket_remove(request)
 
         return render(request, 'mainApp/index.html', context={"last_goods": goods, 'basket': basket})
-
-        # if basket_form.is_valid():
-        #     # print("GOOOOOOOOOOOOOOOOOOOOOOOOOD")
-        #     pass
 
 
 class ShopView(generic.ListView):
@@ -73,19 +74,22 @@ def handler404(request, *args, **argv):
 
 
 def basket_add(request, product_qty=1):
-    product_id = request.POST.get('add_item', 'value')
-    print(product_id)
+    product_id = request.POST.get('id')
     basket = Basket(request)
     product = get_object_or_404(Goods, id=product_id)
     basket.add(request, product=product, qty=product_qty)
     basketqty = basket.__len__()
-    response = JsonResponse({'qty': basketqty})
-    return response
+    print(basket.returnBasket())
+    return JsonResponse(basket.returnBasket())
 
 
-def basket_remove(request):
-    product_id = request.POST.get('remove_item', 'value')
+def basket_remove(request, product_qty=1):
+    product_id = request.POST.get('remove_item_basket', 'value')
     product = get_object_or_404(Goods, id=product_id)
     basket = Basket(request)
     basket.remove(request, product)
-    
+    response = JsonResponse({'qty': product_qty, "OK":"true"})
+    return response
+
+
+# отправил пост запрос без перезагрузки в эту пизду, хочу чтобы динамически обновил также корзину

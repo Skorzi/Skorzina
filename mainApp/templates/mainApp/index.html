@@ -81,12 +81,12 @@
                             <img
                                 src="{% if good.photo %}{{ good.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}">
                         </div>
-                        <form action="" value="{{ good.id }}" method="post" name="add">
+                        <form action="" value="{{ good.id }}" method="post" class="form_add">
                             {% csrf_token %}
                             <div class="product__price">
-                                <input type="submit" name="add_item" value="{{ good.id }}">
+                                <input type="submit" name="add_item" value="{{ good.id }}" class="add">
                                 <div class="price__text">BUY</div>
-                                <div class="price__cost">{{ good.name }}</div>
+                                <div class="price__cost">{{ good.cost }}</div>
                             </div>
                         </form>
                     </div>
@@ -141,15 +141,19 @@
                         <div class="basket__line_under_cost"></div>
                         <div class="basket__goods_title">GOODS IN BASKET</div>
                         {% for good in basket %}
-                            <div class="basket__goods">
-                                <div class="basket__image"><img src="{% if good.photo %}{{ good.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}" alt=""></div>
-                                <div class="basket__cost_of_good">{{good.cost}}</div>
-                                <form action="" value="{{ good.product.id }}" method="post" name="remove">
-                                    {% csrf_token %}
-                                    <div class="basket__delete_good">
-                                        <input type="submit" name="remove_item" value="{{ good.product.id }}">
-                                    </div>
-                                </form>
+                            <div class="basket__goods_all" id="basket__goods_all">
+                                <div class="basket__goods" id="{{good.product.id}}">
+                                    <div class="basket__image"><img
+                                            src="{% if good.product.photo %}{{ good.product.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}"
+                                            alt=""></div>
+                                    <div class="basket__cost_of_good">{{good.cost}}</div>
+                                    <form action="" value="{{ good.product.id }}" method="post" name="remove">
+                                        {% csrf_token %}
+                                        <div class="basket__delete_good">
+                                            <input type="submit" name="remove_item" value="{{ good.product.id }}">
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         {% endfor %}
                         <div class="basket__buy"><a href="#">BUY</a></div>
@@ -159,6 +163,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="{% static 'mainApp/js/script.js' %}"></script>
     <script type="text/javascript" src="{% static 'mainApp/js/shop.js' %}"></script>
 </body>

@@ -76,19 +76,15 @@
             <div class="page__container">
                 <div class="page__list">
                     {% for good in last_goods %}
-                    <div class="page__product" href="">
+                    <div class="page__product" href="" product_id="{{ good.id }}">
                         <div class="product__item">
                             <img
                                 src="{% if good.photo %}{{ good.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}">
                         </div>
-                        <form action="" value="{{ good.id }}" method="post" class="form_add">
-                            {% csrf_token %}
-                            <div class="product__price">
-                                <input type="submit" name="add_item" value="{{ good.id }}" class="add">
-                                <div class="price__text">BUY</div>
-                                <div class="price__cost">{{ good.cost }}</div>
-                            </div>
-                        </form>
+                        <button class="product__price" type="submit">
+                            <div class="price__text">BUY</div>
+                            <div class="price__cost">{{ good.cost }}</div>
+                        </button>
                     </div>
                     {% endfor %}
                 </div>
@@ -140,22 +136,21 @@
                         </div>
                         <div class="basket__line_under_cost"></div>
                         <div class="basket__goods_title">GOODS IN BASKET</div>
-                        {% for good in basket %}
-                            <div class="basket__goods_all" id="basket__goods_all">
+                        <div class="basket__goods_all" id="basket__goods_all">
+                            {% for good in basket %}
                                 <div class="basket__goods" id="{{good.product.id}}">
                                     <div class="basket__image"><img
                                             src="{% if good.product.photo %}{{ good.product.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}"
                                             alt=""></div>
                                     <div class="basket__cost_of_good">{{good.cost}}</div>
-                                    <form action="" value="{{ good.product.id }}" method="post" name="remove">
-                                        {% csrf_token %}
-                                        <div class="basket__delete_good">
-                                            <input type="submit" name="remove_item" value="{{ good.product.id }}">
-                                        </div>
-                                    </form>
+                                    <button class="basket__delete_good" type="submit">
+                                        <div class="delete_good_cross_1"></div>
+                                        <div class="delete_good_cross_2"></div>
+                                        <div class="delete_good_cross_3"></div>
+                                    </button>
                                 </div>
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        </div>
                         <div class="basket__buy"><a href="#">BUY</a></div>
                     </div>
                 </div>

@@ -19,40 +19,31 @@ let basket__block = document.querySelector(".basket__block")
 axios.defaults.xsrfCookieName = 'csrftoken'
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN"
 
-let forms = document.querySelectorAll(".form_add")
+let forms = document.querySelectorAll(".product__price")
 let basket_goods_all = document.getElementById("basket__goods_all")
+let basket_delete_buttons = document.querySelectorAll(".basket__delete_good")
 
 for (let form = 0; form < forms.length; form++) {
     forms[form].addEventListener("click", function (event) {
         event.preventDefault()
         let data = new FormData();
-        data.append("id", forms[form].querySelector('.add').value);
+        // forms[form].querySelector('.add').value
+        data.append("id", forms[form].parentNode.getAttribute("product_id"));
         data.append("add_item", "true");
         axios.post('basket_add', data)
             .then(res => {
-                // let data_get = new FormData();
-                // data_get.append("get_items", "true")
-                // axios.post("", data_get)
-                //     .then(res => {
-                //         console.log(res)
-                //     })
-                //     .catch(err => {
-                //         console.error(err);
-                //     })
-                let new_data = res
 
-                // console.log(new_data.data)
-                const basket__goods_all_html = basket_goods_all.innerHTML
-                for (let id in new_data.data) {
-                    console.log(new_data.data[id])
-                    // for(let values in new_data.data[id]){
-                    //     console.log(new_data.data[id][values])
-                    // }
-                    let cost = new_data.data[id]['cost']
-                    let photo = new_data.data[id]['photo']
+                let new_data = res.data
 
-                    if(!basket_goods_all.getElementById(id)){
-                        basket__goods_all.innerHTML += '<div class="basket__image"><img src=' + photo + 'alt=""></div>' + '<div class="basket__cost_of_good">' + cost + '</div>'
+                for (let id in new_data) {
+
+                    let cost = new_data[id]['cost']
+                    let photo = new_data[id]['photo']
+
+                    if (!document.getElementById(id)) {
+                        basket__goods_all.innerHTML += '<div class="basket__goods" id=' + id + '><div class="basket__image"><img src=' + '/media/' + photo + '></div>' + '<div class="basket__cost_of_good">' + cost + '</div><button class="basket__delete_good"><div class="delete_good_cross_1"></div><div class="delete_good_cross_2"></div><div class="delete_good_cross_3"></div></button></div>'
+                        basket_delete_buttons = document.querySelectorAll('.basket__delete_good')
+                        submitDelForm()
                     }
 
                 }
@@ -67,13 +58,27 @@ for (let form = 0; form < forms.length; form++) {
                 console.error(err);
             })
 
-
     })
 }
 
-
-
-
+function submitDelForm() {
+    for (let i = 0; i < basket_delete_buttons.length; i++) {
+        basket_delete_buttons[i].addEventListener('click', function (event) {
+            event.preventDefault()
+            let data = new FormData()
+            let id = basket_delete_buttons[i].parentNode.getAttribute("id")
+            data.append("id", id)
+            data.append("remove_item", "true")
+            axios.post("basket_remove", data)
+            .then(res => {
+                document.getElementById(id).remove()
+            })
+            .catch(err => {
+                console.error(err); 
+            })
+        })
+    }
+}
 
 
 header_burger.addEventListener("click", function (event) {
@@ -137,3 +142,4 @@ function getActive(event) {
 
 }
 
+submitDelForm();

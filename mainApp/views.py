@@ -84,7 +84,7 @@ def basket_add(request, product_qty=1):
 
 
 def basket_remove(request, product_qty=1):
-    product_id = request.POST.get('remove_item_basket', 'value')
+    product_id = request.POST.get('id')
     product = get_object_or_404(Goods, id=product_id)
     basket = Basket(request)
     basket.remove(request, product)

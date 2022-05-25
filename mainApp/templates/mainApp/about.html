@@ -106,14 +106,30 @@
                             <div class="cost__title">COST:</div>
                             <div class="cost__number">0</div>
                         </div>
-                        
-                        <div class="basket__in_basket"></div>
-                        <div class="basket__buy"></div>
+                        <div class="basket__line_under_cost"></div>
+                        <div class="basket__goods_title">GOODS IN BASKET</div>
+                        <div class="basket__goods_all" id="basket__goods_all">
+                            {% for good in basket %}
+                                <div class="basket__goods" id="{{good.product.id}}">
+                                    <div class="basket__image"><img
+                                            src="{% if good.product.photo %}{{ good.product.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}"
+                                            alt=""></div>
+                                    <div class="basket__cost_of_good">{{good.cost}}</div>
+                                    <button class="basket__delete_good" type="submit">
+                                        <div class="delete_good_cross_1"></div>
+                                        <div class="delete_good_cross_2"></div>
+                                        <div class="delete_good_cross_3"></div>
+                                    </button>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="basket__buy"><a href="#">BUY</a></div>
                     </div>
                 </div>
             </div>
         </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript" src="{% static 'mainApp/js/shop.js' %}"></script>
 </body>
 

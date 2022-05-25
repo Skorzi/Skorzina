@@ -78,8 +78,10 @@
                     {% for good in last_goods %}
                     <div class="page__product" href="" product_id="{{ good.id }}">
                         <div class="product__item">
-                            <img
-                                src="{% if good.photo %}{{ good.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}">
+                            <a href="product/{{good.id}}">
+                                <img
+                                    src="{% if good.photo %}{{ good.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}">
+                            </a>
                         </div>
                         <button class="product__price" type="submit">
                             <div class="price__text">BUY</div>
@@ -116,11 +118,26 @@
                 <div class="login__block">
                     <div class="login__forms">
                         <div class="login__title">LOGIN</div>
+                        {% if user.is_authenticated %}
+                        <div class="login__hello">Hello, {{ user.username }}</div>
+                        <div class="login__logout"><a href="/logout">logout</a></div>
+                        {% else %}
+                        <!-- <form method="POST" class="smbd">
+                            {% csrf_token %}
+                            {{ authForm.username }}
+                            {{ authForm.password }}
+                            <button class="login__smbd" type="submit">LOGIN</button>
+                        </form> -->
+
                         <input class="login__name">
-                        <input class="login__pass">
-                        <input class="login__submit" type="submit" value="login">
-                        <div class="login__register"><a href="#">register</a></div>
-                        <div class="login__forgot"><a href="#">forgot your password?</a></div>
+                        <input class="login__pass" type="password">
+                        <button class="login__submit" type="submit">LOGIN</button>
+                        {% if authform.errors %}
+                            <p>Неправильный логин или пароль</p>
+                        {% endif %}
+                        <div class="login__register"><a href="/register">register</a></div>
+                        <div class="login__forgot"><a href="/changePassword">forgot your password?</a></div>
+                        {% endif%}
                     </div>
                 </div>
                 <div class="basket__block">
@@ -138,17 +155,17 @@
                         <div class="basket__goods_title">GOODS IN BASKET</div>
                         <div class="basket__goods_all" id="basket__goods_all">
                             {% for good in basket %}
-                                <div class="basket__goods" id="{{good.product.id}}">
-                                    <div class="basket__image"><img
-                                            src="{% if good.product.photo %}{{ good.product.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}"
-                                            alt=""></div>
-                                    <div class="basket__cost_of_good">{{good.cost}}</div>
-                                    <button class="basket__delete_good" type="submit">
-                                        <div class="delete_good_cross_1"></div>
-                                        <div class="delete_good_cross_2"></div>
-                                        <div class="delete_good_cross_3"></div>
-                                    </button>
-                                </div>
+                            <div class="basket__goods" id="{{good.product.id}}">
+                                <div class="basket__image"><img
+                                        src="{% if good.product.photo %}{{ good.product.photo.url }}{% else %}{% static '../../static/mainApp/images/goods/3.jpg' %}{% endif %}"
+                                        alt=""></div>
+                                <div class="basket__cost_of_good">{{good.cost}}</div>
+                                <button class="basket__delete_good" type="submit">
+                                    <div class="delete_good_cross_1"></div>
+                                    <div class="delete_good_cross_2"></div>
+                                    <div class="delete_good_cross_3"></div>
+                                </button>
+                            </div>
                             {% endfor %}
                         </div>
                         <div class="basket__buy"><a href="#">BUY</a></div>

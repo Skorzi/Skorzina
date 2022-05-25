@@ -114,14 +114,18 @@ body._lock {
   color: #fffcef;
 }
 
-.header__body:hover .header__logo, .header__body:hover .header__basket_logo, .header__body:hover .header__login_logo {
+.header__body:hover .header__logo,
+.header__body:hover .header__basket_logo,
+.header__body:hover .header__login_logo {
   -webkit-transition-duration: 0.8s;
           transition-duration: 0.8s;
   -webkit-filter: invert(100%) sepia(39%) saturate(616%) hue-rotate(14deg) brightness(108%) contrast(101%);
           filter: invert(100%) sepia(39%) saturate(616%) hue-rotate(14deg) brightness(108%) contrast(101%);
 }
 
-.header__body:hover .header__menu1, .header__body:hover .header__menu2, .header__body:hover .header__menu3 {
+.header__body:hover .header__menu1,
+.header__body:hover .header__menu2,
+.header__body:hover .header__menu3 {
   background-color: #fffcef;
 }
 
@@ -214,7 +218,9 @@ body._lock {
   margin: 45px 0 0 0px;
 }
 
-.header__cross_line, .header__cross_line2, .header__cross_line3 {
+.header__cross_line,
+.header__cross_line2,
+.header__cross_line3 {
   width: 33px;
   height: 3px;
   background-color: black;
@@ -223,7 +229,9 @@ body._lock {
   transition: all 0.3s ease 0s;
 }
 
-.menu__bar1, .menu__bar2, .menu__bar3 {
+.menu__bar1,
+.menu__bar2,
+.menu__bar3 {
   width: 33px;
   height: 3px;
   background-color: #fff;
@@ -242,7 +250,9 @@ body._lock {
   max-width: 100px;
 }
 
-.header__menu1, .header__menu2, .header__menu3 {
+.header__menu1,
+.header__menu2,
+.header__menu3 {
   width: 33px;
   height: 3px;
   background-color: #000;
@@ -295,8 +305,6 @@ body._lock {
 .header__list ._active {
   width: 100%;
   height: 100%;
-  background-color: #000;
-  opacity: 0.8;
 }
 
 .header__link a {
@@ -370,7 +378,6 @@ body._lock {
           transition-timing-function: ease-in;
   opacity: 0;
   padding: 30px;
-  display: block;
   min-width: 200px;
   min-height: 400px;
   border: 3px solid black;
@@ -378,6 +385,13 @@ body._lock {
   background-color: white;
   right: 12vh;
   top: 15vh;
+}
+
+.login__errors {
+  font-size: 18px;
+  background-color: #000;
+  color: red;
+  width: 100%;
 }
 
 .login__title {
@@ -394,7 +408,8 @@ body._lock {
   text-align: center;
 }
 
-.login__name, .login__pass {
+.login__name,
+.login__pass {
   text-align: center;
   margin: 0 auto;
   border: solid black 2px;
@@ -564,7 +579,9 @@ body._lock {
   background-color: white;
 }
 
-.delete_good_cross_1, .delete_good_cross_2, .delete_good_cross_3 {
+.delete_good_cross_1,
+.delete_good_cross_2,
+.delete_good_cross_3 {
   width: 100%;
   height: 3px;
   background-color: black;
@@ -839,7 +856,8 @@ body._lock {
 }
 
 @media screen and (max-width: 830px) {
-  .page__name, .page__phone {
+  .page__name,
+  .page__phone {
     width: 95%;
     height: 50px;
     font-size: 32px;
@@ -853,7 +871,8 @@ body._lock {
   .header__burger {
     display: block;
   }
-  .header__login, .header__basket {
+  .header__login,
+  .header__basket {
     height: 38px;
   }
 }

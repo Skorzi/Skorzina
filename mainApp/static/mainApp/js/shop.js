@@ -23,6 +23,12 @@ let forms = document.querySelectorAll(".product__price")
 let basket_goods_all = document.getElementById("basket__goods_all")
 let basket_delete_buttons = document.querySelectorAll(".basket__delete_good")
 
+let login_name = document.querySelector('.login__name')
+let login_pass = document.querySelector('.login__pass')
+let login_submit = document.querySelector('.login__submit')
+let login_logout = document.querySelector('.login__logout')
+let login_forms = document.querySelector('.login__forms')
+
 for (let form = 0; form < forms.length; form++) {
     forms[form].addEventListener("click", function (event) {
         event.preventDefault()
@@ -30,7 +36,7 @@ for (let form = 0; form < forms.length; form++) {
         // forms[form].querySelector('.add').value
         data.append("id", forms[form].parentNode.getAttribute("product_id"));
         data.append("add_item", "true");
-        axios.post('basket_add', data)
+        axios.post('/basket_add', data)
             .then(res => {
 
                 let new_data = res.data
@@ -69,7 +75,7 @@ function submitDelForm() {
             let id = basket_delete_buttons[i].parentNode.getAttribute("id")
             data.append("id", id)
             data.append("remove_item", "true")
-            axios.post("basket_remove", data)
+            axios.post("/basket_remove", data)
             .then(res => {
                 document.getElementById(id).remove()
             })
@@ -79,6 +85,43 @@ function submitDelForm() {
         })
     }
 }
+
+if(!login_logout){
+    login_submit.addEventListener('click', function(event){
+        let username_login = login_name.value
+        let pass_login = login_pass.value
+        let data = new FormData();
+        data.append('username', username_login)
+        data.append('password', pass_login)
+    
+        axios.post('/login', data)
+            .then(res => {
+                console.log(res)
+                let new_data = res.data
+                if(new_data['OK'] == 'false'){
+                    let error = "Wrong password or username"
+                    let errorDiv = document.createElement('div')
+                    errorDiv.innerHTML = '<div class="login__errors">' + error + '</div>'
+                    errorDiv.setAttribute('class', 'login__errors')
+                    errorDiv.value = error
+                    if(!document.querySelector('.login__errors')){
+                        login_forms.appendChild(errorDiv)
+                    }
+                }else if(new_data['OK'] == 'true'){
+                    console.log(new_data['url'])
+                    window.location.href = new_data['url']
+                }
+            })
+            .catch(err => {
+                console.error(err);
+            })
+        
+    })
+}
+
+
+
+
 
 
 header_burger.addEventListener("click", function (event) {

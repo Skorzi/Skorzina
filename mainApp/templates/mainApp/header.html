@@ -1,3 +1,11 @@
+<head>
+    <title>Skorzina</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/style.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+</head>
+
 <div class="header">
     <div class="header__blockout"></div>
     <div class="header__body">
@@ -6,7 +14,7 @@
         </div>
         <ul class="header__list">
             <li class="header__link"><a href="{% url 'shop' %}">Shop</a></li>
-            <li class="header__link"><a href="#contact-form">Contact</a></li>
+            <li class="header__link"><a href="/#contact-form">Contact</a></li>
             <li class="header__link"><a href="{% url 'about' %}">About</a></li>
             <li class="header__link"><a href="{% url 'help' %}">Help</a></li>
         </ul>

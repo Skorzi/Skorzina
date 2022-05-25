@@ -1,18 +1,14 @@
 {% load static %}
-
 <html>
 
 <head>
-    
     <title>Skorzina</title>
     <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/shop.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/help.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'mainApp/css/product.css' %}">
     <meta charset="UTF-8">
-	<meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
+    <meta http-equiv="Content-Type" content="text/html; charset=Windows-1251">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 </head>
 
 <body>
@@ -67,9 +63,22 @@
             </div>
         </div>
         <main class="page">
-            <div class="page__title">
-                <div class="page__text">YOU NEED A HELP? CALL ME</div>
-                <div class="page__phone">89FuckThis337</div>
+            <div class="page__container">
+                <div class="product">
+                    <div class="product__image"><img src="{{ good.photo.url }}" alt=""></div>
+                    <div class="product__description">
+                        <div class="product__name">{{ good.name }}</div>
+                        <div class="page__line"></div>
+                        <div class="product__description_text">DESCRIPTION</div>
+                        <div class="product__bottom" product_id="{{good.id}}">
+                            <button class="product__price" type="submit">
+                                <div class="price__text">BUY</div>
+                                <div class="price__cost">{{ good.cost }}</div>
+                            </button>
+                            <div class="product__cost">COST: {{ good.cost }}</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer class="footer">
@@ -129,8 +138,11 @@
             </div>
         </div>
 
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript" src="{% static 'mainApp/js/script.js' %}"></script>
     <script type="text/javascript" src="{% static 'mainApp/js/shop.js' %}"></script>
 </body>
+
 
 </html>

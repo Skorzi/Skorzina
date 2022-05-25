@@ -1,0 +1,26 @@
+<div class="login__block">
+    <div class="login__forms">
+        <div class="login__title">LOGIN</div>
+        {% if user.is_authenticated %}
+        <div class="login__hello">Hello, {{ user.username }}</div>
+        <div class="login__logout"><a href="/logout">logout</a></div>
+        {% else %}
+        <form method="POST" class="login__form" action="{% url 'login_view' %}">
+            {% csrf_token %}
+            {{ authForm.username }}
+            {{ authForm.password }}
+            <input class="login__name">
+            <input class="login__pass" type="password">
+            <button class="login__submit" type="submit">LOGIN</button>
+            {% if authform.errors %}
+                <p>Неправильный логин или пароль</p>
+            {% endif %}
+            <div class="login__register"><a href="/register">register</a></div>
+            <div class="login__forgot"><a href="#">forgot your password?</a></div>
+            {% endif%}
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script type="text/javascript" src="{% static 'mainApp/js/shop.js' %}"></script>

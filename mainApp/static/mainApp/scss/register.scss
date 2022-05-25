@@ -1,0 +1,62 @@
+.wrapper {
+}
+.app_container {
+    height: auto;
+}
+.page__container {
+
+}
+
+.page__form{
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.errorslist{
+    font-size: 18px;
+}
+
+.button_submit_regForm {
+    border: solid black 2px;
+    width: 400px;
+    height: 43px;
+    font-size: 27px;
+    margin: 20px 0 0 0;
+}
+
+input#id_username{
+    border: solid black 2px;
+    margin: 20px 0 0 0;
+    width: 520px;
+    height: 51px;
+    font-size: 29px;
+    padding: 0 0 0 10px;
+}
+input#id_email{
+    border: solid black 2px;
+    margin: 20px 0 0 0;
+    width: 520px;
+    height: 51px;
+    font-size: 29px;
+    padding: 0 0 0 10px;
+}
+
+input#id_password1{
+    border: solid black 2px;
+    margin: 20px 0 0 0;
+    width: 520px;
+    height: 51px;
+    font-size: 29px;
+    padding: 0 0 0 10px;
+}
+
+input#id_password2{
+    border: solid black 2px;
+    margin: 20px 0 0 0;
+    width: 520px;
+    height: 51px;
+    font-size: 29px;
+    padding: 0 0 0 10px;
+}

@@ -30,7 +30,7 @@ SECRET_KEY = '5777d27c-f9fc-4302-8a2b-12d91c0b2213'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['193.233.205.103']
+ALLOWED_HOSTS = ['193.233.205.103', '127.0.0.1', 'localhost']
 
 # Application references
 # https://docs.djangoproject.com/en/2.1/ref/settings/#std:setting-INSTALLED_APPS
@@ -86,8 +86,14 @@ WSGI_APPLICATION = 'Skorzina.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'skorzina',
+        'USER': 'skorzinauser',
+        'PASSWORD': 'dbpassword',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

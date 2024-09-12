@@ -5,6 +5,7 @@
   - Релизовано сохранение товаров в корзине
   - Реализована админка для добавления товаров
   - Реализована регистрация
+  - Подключал PostgreSql и Gunicorn
 
 ![image](https://github.com/user-attachments/assets/2756fe5b-ea17-4868-8d10-4b4b9120894d)
 ![image](https://github.com/user-attachments/assets/bdf8197d-1e97-4926-93ce-767125dfa004)
